@@ -1,0 +1,27 @@
+def love():
+    while True:
+        try:
+            singleness = int(input("Enter your singleness score (must be 1): "))
+            if singleness != 1:
+                print("Kindly input the number 1 here")
+                continue
+            maturity = int(input("Enter your maturity score (1-10): "))
+            intelligence = int(input("Enter your intelligence score (1-10): "))
+            trust = int(input("Enter your trust score (1-10): "))
+            love_score = int(input("Enter your love score (1-10): "))
+            
+            if not all(1 <= score <= 10 for score in (maturity, intelligence, trust, love_score)):
+                print("Kindly input a number between 1 and 10")
+                continue
+                
+            total_score = singleness + maturity + intelligence + trust + love_score
+            if total_score >= 21:
+                print("Congrats! You are closer to your desired romantic relationship")
+                break
+            else:
+                print("Your total score is below 21. Keep working on it!")
+                break
+                
+        except ValueError:
+            print("Kindly input a number between 1 and 10")
+            continue
